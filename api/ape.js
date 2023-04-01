@@ -25,7 +25,7 @@ ape.post('/api1', (req, res) => {
     const book = {
         id: api1.length + 1,
         lname: req.body.lname,
-        fanme: req.body.fname,
+        fname: req.body.fname,
         age: req.body.age,
         user: req.body.user,
         pass: req.body.pass,
