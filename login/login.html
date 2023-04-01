@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .background {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        background-image: url(./background.jpeg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .form {
+        width: 300px;
+        height: 400px;
+    }
+
+    .form div {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div p {
+        font-size: 20px;
+        color: white;
+    }
+
+    div input {
+        width: 80%;
+        height: 40px;
+        border: 0;
+        outline: 0;
+        border-radius: 5px;
+        padding-left: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .a-div {
+        height: 10%;
+    }
+
+    .a-left {
+        width: 60%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: rgb(150, 218, 223);
+    }
+
+    .a-right {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: rgb(150, 218, 223);
+    }
+
+    div button {
+        width: 80%;
+        height: 35px;
+        border-radius: 30px;
+        border: 0;
+        outline: 0;
+        background-color: rgb(214, 0, 75);
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="background">
+        <div class="form">
+            <div>
+                <p>Login</p>
+            </div>
+            <div>
+                <input id="lname" type="text" placeholder="lname...">
+            </div>
+            <div>
+                <input id="fname" type="text" placeholder="fname...">
+            </div>
+            <div>
+                <input id="age" type="text" placeholder="age...">
+            </div>
+            <div>
+                <input id="user" type="text" placeholder="user...">
+            </div>
+            <div>
+                <input id="pass" type="text" placeholder="pass...">
+            </div>
+            <div class="a-div">
+                <a class="a-left" href="#">Lorem, ipsum dolor.</a>
+                <a class="a-right" href="#">Lorem.</a>
+            </div>
+            <div>
+                <button onclick="post()">post</button>
+                <button onclick="test()">test</button>
+                <button onclick="get()">get</button>
+                <button onclick="put()">put</button>
+                <button onclick="delet()">delete</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function post() {
+        const http = new XMLHttpRequest();
+        const lname = document.getElementById("lname").value;
+        const fname = document.getElementById("fname").value;
+        const age = document.getElementById("age").value;
+        const user = document.getElementById("user").value;
+        const pass = document.getElementById("pass").value;
+        let data = {
+            lname: lname,
+            fname: fname,
+            age: age,
+            user: user,
+            pass: pass,
+        }
+        http.open("POST", "http://localhost:3000/api1/");
+        http.setRequestHeader("Content-Type", "application/json");
+        http.send(JSON.stringify(data));
+        http.onload = () => {
+            const data = JSON.parse(http.responseText)
+            console.log(data);
+        }
+        http.onerror = () => {
+            console.log("error");
+        }
+    }
+
+    function test() {
+        const http = new XMLHttpRequest();
+        const user = document.getElementById("user").value;
+        const pass = document.getElementById("pass").value;
+        let data = {
+            user: user,
+            pass: pass,
+        }
+        http.open("POST", "http://localhost:3000/test/");
+        http.setRequestHeader("Content-Type", "application/json");
+        http.send(JSON.stringify(data));
+        http.onload = () => {
+            const data = JSON.parse(http.responseText)
+            console.log(data);
+        }
+        http.onerror = () => {
+            console.log("error");
+        }
+    }
+
+    function get() {
+        const http = new XMLHttpRequest();
+
+        http.open("GET", "http://localhost:3000/api1/")
+        http.send();
+        http.onload = () => {
+            const data = JSON.parse(http.responseText)
+            console.log(data);
+        }
+        http.onerror = () => {
+            console.log("error");
+        }
+    }
+
+
+    function put() {
+        const http = new XMLHttpRequest();
+        const user = document.getElementById("user").value;
+        const pass = document.getElementById("pass").value;
+        let data = {
+            user: user,
+            pass: pass,
+        }
+        http.open("PUT", "http://localhost:3000/api1/1");
+        http.setRequestHeader("Content-Type", "application/json");
+        http.send(JSON.stringify(data));
+        http.onload = () => {
+            const data = JSON.parse(http.responseText)
+            console.log(data);
+        }
+        http.onerror = () => {
+            console.log("error");
+        }
+    }
+
+    function delet() {
+        const http = new XMLHttpRequest();
+
+        http.open("DELETE", "http://localhost:3000/api1/2");
+        http.send();
+        http.onload = () => {
+            const data = JSON.parse(http.responseText)
+            console.log(data);
+        }
+        http.onerror = () => {
+            console.log("error");
+        }
+    }
+</script>
+
+</html>
