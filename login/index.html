@@ -33,47 +33,6 @@
         background-size: cover;
     }
 
-    .profile {
-        width: 90%;
-        height: 90vh;
-        border-radius: 15px;
-        display: none;
-    }
-
-    .profile-t {
-        width: 100%;
-        height: 35%;
-        margin-bottom: 5%;
-        background-image: url(./img/profile.jpeg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 15px;
-    }
-
-    .profile-b {
-        width: 100%;
-        height: 60%;
-        display: grid;
-        grid-template-columns: 48% 48%;
-        gap: 30px;
-    }
-
-    .progrid {
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .progrid p {
-        font-size: 20px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
     .form {
         width: 300px;
         height: 400px;
@@ -143,29 +102,6 @@
 
 <body>
     <div class="background">
-        <div class="profile" id="profile">
-            <div class="profile-t"></div>
-            <div class="profile-b">
-                <div class="progrid prog1">
-                    <p>:نام کاربری</p>
-                    <p id="usertext"></p>
-                    <p>:رمز</p>
-                    <p id="passtext"></p>
-                </div>
-                <div class="progrid prog2">
-                    <p>:نام</p>
-                    <p id="lnametext"></p>
-                </div>
-                <div class="progrid prog3">
-                    <p>:نام خوانوادگی</p>
-                    <p id="fnametext"></p>
-                </div>
-                <div class="progrid prog4">
-                    <p>:سن</p>
-                    <p id="agetext"></p>
-                </div>
-            </div>
-        </div>
         <div class="form" id="form">
             <div class="titr">
                 <p>ورود</p>
@@ -209,41 +145,26 @@
         }
         function test() {
             const http = new XMLHttpRequest();
-            let data = {
+            let datareq = {
                 user: user,
                 pass: pass,
             }
             http.open("POST", "http://localhost:3000/test/");
             http.setRequestHeader("Content-Type", "application/json");
-            http.send(JSON.stringify(data));
+            http.send(JSON.stringify(datareq));
             http.onload = () => {
-                const data = JSON.parse(http.responseText)
-                console.log(data);
-                
-                const lnametext = document.getElementById("lnametext");
-                console.log(lnametext);
-                lnametext.innerHTML = data.key.lname;
-                const fnametext = document.getElementById("fnametext");
-                console.log(fnametext);
-                fnametext.innerHTML = data.key.fname;
-                const agetext = document.getElementById("agetext");
-                console.log(agetext);
-                agetext.innerHTML = data.key.age;
-                const usertext = document.getElementById("usertext");
-                console.log(usertext);
-                usertext.innerHTML = data.key.user;
-                const passtext = document.getElementById("passtext");
-                console.log(passtext);
-                passtext.innerHTML = data.key.pass;
+                const datares = JSON.parse(http.responseText)
+                console.log(datares);
+                if(datares.key){
+                    document.cookie = "key =" + JSON.stringify(datareq);
+                    location.href = "./profile.html";
+                } else {
+                    alert("اشتباه است");
+                }
             }
             http.onerror = () => {
                 console.log("error");
             }
-            const profile = document.getElementById("profile");
-            const form = document.getElementById("form");
-
-            profile.style.display = "block";
-            form.style.display = "none";
         } test();
     }
 </script>

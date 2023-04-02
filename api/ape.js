@@ -1,48 +1,57 @@
-const express = require("express");
-const fs = require("fs");
-const cors = require("cors");
+const express = require('express');
+const fs = require('fs');
+const cors = require('cors');
 const ape = express();
 ape.use(express.json())
 ape.use(cors());
 ape.options('*', cors());
 
-let api1 = [];
-let api1json = fs.readFileSync('api1.json');
-api1 = JSON.parse(api1json);
-console.log(api1);
+let user = [];
+let userjson = fs.readFileSync('user.json');
+user = JSON.parse(userjson);
 
-ape.get('/api1', function routeHandler(req, res) { res.send(api1) });
+let post = [];
+let postjson = fs.readFileSync('post.json');
+post = JSON.parse(postjson);
 
-ape.get('/api1/:id', function routeHandler(req, res) {
-    const book = api1.find(c => c.id === parseInt(req.params.id));
+ape.get('/user', function routeHandler(req, res) { res.send(user) });
+ape.get('/post', function routeHandler(req, res) { res.send(post) });
+
+ape.get('/user/:id', function routeHandler(req, res) {
+    const book = user.find(c => c.id === parseInt(req.params.id));
+    if (!book) res.status(404).send('<h2 style="color: darkred;">خالی است</h2>');
+    res.send(book);
+});
+ape.get('/post/:id', function routeHandler(req, res) {
+    const book = post.find(c => c.id === parseInt(req.params.id));
     if (!book) res.status(404).send('<h2 style="color: darkred;">خالی است</h2>');
     res.send(book);
 });
 
-ape.post('/api1', (req, res) => {
+ape.post('/user', (req, res) => {
     const { erorr } = req.body;
     if (erorr) { res.status(400).send(erorr.details[0].message); return }
     const book = {
-        id: api1.length + 1,
+        id: user.length + 1,
         lname: req.body.lname,
         fname: req.body.fname,
         age: req.body.age,
         user: req.body.user,
         pass: req.body.pass,
     }
-    api1.push(book);
+    user.push(book);
     res.send(book);
-    fs.writeFile("./api1.json", JSON.stringify(api1) , (err) => {
+    fs.writeFile('./user.json', JSON.stringify(user) , (err) => {
         if (err) throw err;
-        console.log("fs updata");
+        console.log('user.json updata');
     })
-    console.log(api1);
+    console.log(user);
 });
 
 ape.post('/test', (req, res) => {
     const { erorr } = req.body;
     if (erorr) { res.status(400).send(erorr.details[0].message); return }
-    const key = api1.find(data => data.user === req.body.user && data.pass === req.body.pass);
+    const key = user.find(data => data.user === req.body.user && data.pass === req.body.pass);
     const book = {
         key: key,
     }
@@ -58,8 +67,25 @@ ape.post('/test', (req, res) => {
     }
 });
 
-ape.put('/api1/:id', (req, res) => {
-    const book = api1.find(c => c.id === parseInt(req.params.id));
+ape.post('/post', (req, res) => {
+    const { erorr } = req.body;
+    if (erorr) { res.status(400).send(erorr.details[0].message); return }
+    const book = {
+        id: post.length + 1,
+        lname: req.body.lname,
+        text: req.body.text,
+    }
+    post.push(book);
+    res.send(book);
+    fs.writeFile('./post.json', JSON.stringify(post) , (err) => {
+        if (err) throw err;
+        console.log('post.json updata');
+    })
+    console.log(post);
+});
+
+ape.put('/user/:id', (req, res) => {
+    const book = user.find(c => c.id === parseInt(req.params.id));
     if (!book) res.status(404).send('<h2 style="color: darkred;">خالی است</h2>');
     const { error } = req.body;
     if (error) { res.status(400).send(error.details[0].message); return; }
@@ -70,12 +96,12 @@ ape.put('/api1/:id', (req, res) => {
         res.send(book);
 });
 
-ape.delete('/api1/:id', (req, res) => {
-    const book = api1.find(c => c.id === parseInt(req.params.id));
+ape.delete('/user/:id', (req, res) => {
+    const book = user.find(c => c.id === parseInt(req.params.id));
     if (!book) res.status(404).send('<h2 style="color: darkred;">خالی است</h2>');
 
-    const index = api1.indexOf(book);
-    api1.splice(index, 1);
+    const index = user.indexOf(book);
+    user.splice(index, 1);
     res.send(book);
 });
 
