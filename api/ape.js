@@ -14,8 +14,13 @@ let post = [];
 let postjson = fs.readFileSync('post.json');
 post = JSON.parse(postjson);
 
+let nazar = [];
+let nazarjson = fs.readFileSync('nazar.json');
+nazar = JSON.parse(nazarjson);
+
 ape.get('/user', function routeHandler(req, res) { res.send(user) });
 ape.get('/post', function routeHandler(req, res) { res.send(post) });
+ape.get('/nazar', function routeHandler(req, res) { res.send(nazar) });
 
 ape.get('/user/:id', function routeHandler(req, res) {
     const book = user.find(c => c.id === parseInt(req.params.id));
@@ -24,6 +29,11 @@ ape.get('/user/:id', function routeHandler(req, res) {
 });
 ape.get('/post/:id', function routeHandler(req, res) {
     const book = post.find(c => c.id === parseInt(req.params.id));
+    if (!book) res.status(404).send('<h2 style="color: darkred;">خالی است</h2>');
+    res.send(book);
+});
+ape.get('/nazar/:id', function routeHandler(req, res) {
+    const book = nazar.find(c => c.id === parseInt(req.params.id));
     if (!book) res.status(404).send('<h2 style="color: darkred;">خالی است</h2>');
     res.send(book);
 });
@@ -45,7 +55,6 @@ ape.post('/user', (req, res) => {
         if (err) throw err;
         console.log('user.json updata');
     })
-    console.log(user);
 });
 
 ape.post('/test', (req, res) => {
@@ -81,7 +90,36 @@ ape.post('/post', (req, res) => {
         if (err) throw err;
         console.log('post.json updata');
     })
-    console.log(post);
+});
+
+ape.post('/nazar', (req, res) => {
+    const { erorr } = req.body;
+    if (erorr) { res.status(400).send(erorr.details[0].message); return }
+    const book = {
+        id: nazar.length + 1,
+        lname: req.body.lname,
+        postid: req.body.postid,
+        text: req.body.text,
+    }
+    nazar.push(book);
+    res.send(book);
+    fs.writeFile('./nazar.json', JSON.stringify(nazar) , (err) => {
+        if (err) throw err;
+        console.log('nazar.json updata');
+    })
+});
+
+ape.post('/comentpost', (req, res) => {
+    const { erorr } = req.body;
+    if (erorr) { res.status(400).send(erorr.details[0].message); return }
+    let book = [];
+    for (i = 0; i < nazar.length; i++) {
+        if (nazar[i].postid == req.body.postid) {
+            book.push(nazar[i]);
+        }
+        console.log(JSON.stringify(book));
+    }
+    res.send(JSON.stringify(book));
 });
 
 ape.put('/user/:id', (req, res) => {

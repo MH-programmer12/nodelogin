@@ -104,7 +104,7 @@
     <div class="background">
         <div class="form" id="form">
             <div class="titr">
-                <p>ورود</p>
+                <p>ورود داشبورد</p>
             </div>
             <div>
                 <input id="user" type="text" placeholder="...نام کاربری">
@@ -113,11 +113,11 @@
                 <input id="pass" type="text" placeholder="...رمز">
             </div>
             <div class="a-div">
-                <a class="a-left" href="./vDashboard.html">ورود به صفحه داشبورد</a>
+                <a class="a-left" href="./index.html">ورود به صفحه ورود</a>
                 <a class="a-right" href="./Register.html">ثبت نام</a>
             </div>
             <div>
-                <button onclick="clickr()">ورود</button>
+                <button onclick="clickr()">ورود به داشبورد</button>
             </div>
         </div>
     </div>
@@ -157,7 +157,7 @@
                 console.log(datares);
                 if (datares.key) {
                     document.cookie = "key =" + JSON.stringify(datareq);
-                    location.href = "./asly.html";
+                    location.href = "./Dashboard.html";
                 } else {
                     alert("اشتباه است");
                 }
