@@ -1,0 +1,275 @@
+@font-face {
+    font-family: vazir;
+    src: url(../Vazir.ttf);
+}
+
+* {
+    font-family: vazir;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/background.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.nav {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.nav div {
+    width: 100px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: rgba(150, 0, 150, 0.7);
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.nav div:hover {
+    background-color: rgba(150, 0, 150, 0.3);
+}
+
+.profile {
+    width: 50%;
+    height: 90vh;
+    border-radius: 15px;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.profile-t {
+    width: 100%;
+    height: 35%;
+    margin-bottom: 5%;
+    background-image: url(../img/profile.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.profile-b {
+    width: 100%;
+    height: 60%;
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 30px;
+}
+
+.progrid {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progrid p {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.divpost {
+    width: 90%;
+    height: 90vh;
+    border-radius: 15px;
+    display: none;
+    overflow: hidden;
+}
+
+.post {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 700px;
+    height: 85vh;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.post header {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(128, 0, 94);
+    box-shadow: 0 0 3px 0 rgba(148, 0, 108, 0.7);
+    color: white;
+}
+
+.post header p {
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post .posts {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    position: absolute;
+    z-index: 0.9;
+    box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.post .posts .bot1 {
+    margin: 0 5%;
+    margin-bottom: 25px;
+    width: 90%;
+    height: auto;
+    min-height: 40px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: row-reverse;
+    animation: text 0.3s;
+}
+
+.post .posts .bot1 p {
+    position: relative;
+    margin: 0 2%;
+    padding: 5px 70px 5px 25px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: auto;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    font-size: 17px;
+    text-align: right;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.post .posts .bot1 p:hover {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.post .posts .bot1 p .name {
+    position: absolute;
+    right: 7px;
+    top: 2px;
+    color: rgba(0, 0, 0, 0.8);
+    transition: 0.2s;
+}
+
+.post .posts .bot1 p .name:hover {
+    color: white;
+}
+
+.post .posts .bot1 p .time {
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+    color: rgba(0, 0, 0, 0.6);
+    transition: 0.2s;
+}
+
+.post .posts .bot1 p .time:hover {
+    color: white;
+}
+
+.post footer {
+    width: 100%;
+    height: 25px;
+    background-color: rgb(128, 0, 94);
+    box-shadow: 0 0 3px 0 rgba(148, 0, 108, 0.7);
+    position: absolute;
+    z-index: 0.9;
+    bottom: 0;
+}
+
+@keyframes text {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px 0 gray;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 128, 83);
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(8, 113, 76);
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
+::selection {
+    background-color: white;
+    color: green;
+}

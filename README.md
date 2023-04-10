@@ -2,8 +2,9 @@
 
 ## Run backend
 ### How to run the server project in the api folder
-nodeproject/api/
+nodeproject/api/api.js
 ```bash
+npm install
 npm run start
 node ape.js
 ```
@@ -37,6 +38,6 @@ node ape.js
 - http://localhost:3000/user/2
 - http://localhost:3000/user/...
 
-# Run front
+## Run front
 ### To run front, run the file index.html in the project folder
 nodeproject/project/index.html

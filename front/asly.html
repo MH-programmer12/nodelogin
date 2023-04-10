@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/asly.css">
+    <title>صفحه اصلی</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="body">
+        <div class="nav">
+            <div onclick="navpost()">پست ها</div>
+            <div onclick="navprofile()">پروفایل</div>
+        </div>
+        <div class="profile" id="profile">
+            <div class="profile-t"></div>
+            <div class="profile-b">
+                <div class="progrid prog1">
+                    <p>:نام کاربری</p>
+                    <p id="usertext"></p>
+                    <p>:رمز</p>
+                    <p id="passtext"></p>
+                </div>
+                <div class="progrid prog2">
+                    <p>:نام</p>
+                    <p id="lnametext"></p>
+                </div>
+                <div class="progrid prog3">
+                    <p>:نام خوانوادگی</p>
+                    <p id="fnametext"></p>
+                </div>
+                <div class="progrid prog4">
+                    <p>:سن</p>
+                    <p id="agetext"></p>
+                </div>
+            </div>
+        </div>
+        <div class="divpost" id="post">
+
+            <div class="post">
+                <header>
+                    <p>پست ها</p>
+                </header>
+                <div id="posts" class="posts"></div>
+                <footer></footer>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/asly.js"></script>
+</html>

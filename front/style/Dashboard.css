@@ -1,0 +1,331 @@
+@font-face {
+    font-family: vazir;
+    src: url(../Vazir.ttf);
+}
+
+* {
+    font-family: vazir;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/background.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nav {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.nav div {
+    width: 100px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: rgba(150, 0, 150, 0.7);
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.nav div:hover {
+    background-color: rgba(150, 0, 150, 0.3);
+}
+
+.profile {
+    width: 50%;
+    height: 90vh;
+    border-radius: 15px;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.profile-t {
+    width: 100%;
+    height: 35%;
+    margin-bottom: 5%;
+    background-image: url(../img/profile.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.profile-b {
+    width: 100%;
+    height: 60%;
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 30px;
+}
+
+.progrid {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progrid p {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.divpost {
+    width: 90%;
+    height: 90vh;
+    border-radius: 15px;
+    display: none;
+}
+
+.post {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    height: 88vh;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.post header {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(128, 0, 94);
+    box-shadow: 0 0 3px 0 rgba(148, 0, 108, 0.7);
+    color: white;
+}
+
+.post header div {
+    width: 18%;
+    height: 100%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post header div .img {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    background-image: url(../img/pv1.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.post header p {
+    width: 18%;
+    height: 100%;
+    float: right;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post .posts {
+    width: 100%;
+    height: 93%;
+    overflow: auto;
+    padding-top: 80px;
+    padding-bottom: 45px;
+    position: absolute;
+    z-index: 0.9;
+    box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.post .posts .my {
+    margin: 0 5%;
+    margin-bottom: 25px;
+    width: 90%;
+    height: auto;
+    min-height: 40px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    animation: text 0.2s;
+}
+
+.post .posts .my p {
+    position: relative;
+    margin: 0 2%;
+    padding: 5px 25px 5px 48px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: auto;
+    min-width: 80px;
+    max-width: 70%;
+    min-height: 35px;
+    max-height: 500px;
+    background-color: rgb(199, 230, 221);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.post .posts .my .time {
+    position: absolute;
+    left: 5px;
+    bottom: 1px;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.post .posts .bot1 {
+    margin: 0 5%;
+    margin-bottom: 25px;
+    width: 90%;
+    height: auto;
+    min-height: 40px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row-reverse;
+    animation: text 0.3s;
+}
+
+.post .posts .bot1 p {
+    position: relative;
+    margin: 0 2%;
+    padding: 5px 70px 5px 25px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: auto;
+    min-width: 80px;
+    max-width: 70%;
+    min-height: 35px;
+    max-height: 500px;
+    background-color: #fefefe;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.post .posts .bot1 p .name {
+    position: absolute;
+    right: 7px;
+    top: 2px;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.post .posts .bot1 p .time {
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.post .textarea {
+    width: 100%;
+    height: 45px;
+    position: absolute;
+    z-index: 0.9;
+    bottom: 0;
+}
+
+.post .textarea textarea {
+    width: 100%;
+    height: 100%;
+    min-width: 70%;
+    border: none;
+    outline: 0;
+    background-color: rgb(128, 0, 94);
+    box-shadow: 0 0 3px 0 rgba(148, 0, 108, 0.7);
+    font-size: 18px;
+    padding: 8px 100px 5px 50px;
+    color: white;
+    text-align: center;
+    resize: none;
+}
+
+.post .textarea .next .ersal {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 3px;
+    right: 25px;
+    padding: 0 2%;
+    color: white;
+}
+
+@keyframes btn {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes text {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px 0 gray;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 128, 83);
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(8, 113, 76);
+}

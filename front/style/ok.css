@@ -1,0 +1,46 @@
+@font-face {
+    font-family: vazir;
+    src: url(../Vazir.ttf);
+}
+
+* {
+    font-family: vazir;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/background.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.div {
+    width: 350px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.div p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.div a {
+    font-size: 20px;
+    margin-top: 10px;
+}
