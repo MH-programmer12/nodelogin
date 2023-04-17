@@ -25,14 +25,25 @@ if (cookie[0] == "key") {
 
 const profile = document.getElementById("profile");
 const post = document.getElementById("post");
+const admin = document.getElementById("admin");
 
 function navpost() {
+    admin.style.display = "none";
     profile.style.display = "none";
     post.style.display = "block";
 }
+function navasly() {
+    location.href = "./index.html";
+}
 function navprofile() {
-    profile.style.display = "block";
+    admin.style.display = "none";
     post.style.display = "none";
+    profile.style.display = "block";
+}
+function navadmin() {
+    profile.style.display = "none";
+    post.style.display = "none";
+    admin.style.display = "block";
 }
 
 var now = new Date();
@@ -90,24 +101,128 @@ const httppost = new XMLHttpRequest();
 httppost.open("GET", "http://localhost:3000/post/");
 httppost.send();
 httppost.onload = () => {
-    const res = JSON.parse(httppost.responseText);
-
-    for (let i = 0; i < res.length; i++) {
-        const aname = document.createElement("span");
-        const time = document.createElement("span");
-        const p = document.createElement("p");
-        const div = document.createElement("div");
-        time.innerHTML = hour + ":" + minute;
-        aname.classList = "name";
-        time.classList = "time";
-        div.classList = "bot1";
-        aname.innerHTML = res[i].lname;
-        const textnode = document.createTextNode(res[i].text);
-        p.appendChild(textnode);
-        p.appendChild(aname);
-        p.appendChild(time);
-        div.appendChild(p);
-        document.getElementById("posts").appendChild(div);
+    const res = JSON.parse(httppost.responseText)
+    console.log(res);
+    for (i = 0; i < res.length; i++) {
+        const divspost = document.createElement("div");
+        const divlname = document.createElement("div");
+        const divtext = document.createElement("div");
+        divspost.classList = "divspost";
+        divlname.classList = "divpost";
+        divtext.classList = "divpost";
+        const textnodelname = document.createTextNode(res[i].lname);
+        const textnodetext = document.createTextNode(res[i].text);
+        divlname.appendChild(textnodelname);
+        divtext.appendChild(textnodetext);
+        divspost.appendChild(divlname);
+        divspost.appendChild(divtext);
+        document.getElementById("posts").appendChild(divspost);
     }
 }
 httppost.onerror = () => { console.log("error") }
+
+function register() {
+    const lname = document.getElementById("lname").value;
+    const fname = document.getElementById("fname").value;
+    const age = document.getElementById("age").value;
+    const user = document.getElementById("user").value;
+    const pass = document.getElementById("pass").value;
+    const passok = document.getElementById("passok").value;
+
+    if (lname.length < 2) {
+        alert("اسم شما نباید کمتر از 2 حرف باشد");
+        return;
+    }
+    if (lname.length > 20) {
+        alert("اسم شما نباید بیشتر از 20 حرف باشد");
+        return;
+    }
+    if (fname.length < 2) {
+        alert("فامیلی شما نباید کمتر از 2 حرف باشد");
+        return;
+    }
+    if (fname.length > 20) {
+        alert("فامیلی شما نباید بیشتر از 20 حرف باشد");
+        return;
+    }
+    if (age.length > 3) {
+        alert("سن شما 4 رقمی شده است");
+        return;
+    }
+    if (user.length < 3) {
+        alert("نام کاربری شما نباید کمتر از 3 حرف باشد");
+        return;
+    }
+    if (user.length > 15) {
+        alert("نام کاربری شما نباید بیشتر از 15 حرف باشد");
+        return;
+    }
+    if (pass.length < 3) {
+        alert("رمز شما نباید کمتر از 3 حرف باشد");
+        return;
+    }
+    if (pass.length > 15) {
+        alert("رمز شما نباید بیشتر از 15 حرف باشد");
+        return;
+    }
+    if (pass.length != passok.length) {
+        alert("رمز شما همخوانی ندارد");
+        return;
+    }
+    const http = new XMLHttpRequest();
+    let data = {
+        lname: lname,
+        fname: fname,
+        age: age,
+        user: user,
+        pass: pass,
+    }
+    http.open("POST", "http://localhost:3000/user/");
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send(JSON.stringify(data));
+    http.onload = () => {
+        const data = JSON.parse(http.responseText)
+        console.log(data);
+        location.href = "Dashboard.html";
+    }
+    http.onerror = () => { console.log("error") }
+}
+
+const httpuser = new XMLHttpRequest();
+httpuser.open("GET", "http://localhost:3000/user")
+httpuser.send();
+httpuser.onload = () => {
+    const res = JSON.parse(httpuser.responseText)
+    console.log(res);
+    for (i = 0; i < res.length; i++) {
+        const divsuser = document.createElement("div");
+        const divlname = document.createElement("div");
+        const divfname = document.createElement("div");
+        const divage = document.createElement("div");
+        const divuser = document.createElement("div");
+        const divpass = document.createElement("div");
+        divlname.classList = "divuser";
+        divfname.classList = "divuser";
+        divage.classList = "divuser";
+        divuser.classList = "divuser";
+        divpass.classList = "divuser";
+        divsuser.classList = "divsuser";
+        const textnodelname = document.createTextNode(res[i].lname);
+        const textnodefname = document.createTextNode(res[i].fname);
+        const textnodeage = document.createTextNode(res[i].age);
+        const textnodeuser = document.createTextNode(res[i].user);
+        const textnodepass = document.createTextNode(res[i].pass);
+        divlname.appendChild(textnodelname);
+        divfname.appendChild(textnodefname);
+        divage.appendChild(textnodeage);
+        divuser.appendChild(textnodeuser);
+        divpass.appendChild(textnodepass);
+        divsuser.appendChild(divlname);
+        divsuser.appendChild(divfname);
+        divsuser.appendChild(divage);
+        divsuser.appendChild(divuser);
+        divsuser.appendChild(divpass);
+        document.getElementById("admins").appendChild(divsuser);
+    }
+}
+httpuser.onerror = () => { console.log("error") }

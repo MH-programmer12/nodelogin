@@ -8,68 +8,94 @@
     <link rel="stylesheet" href="./style/Dashboard.css">
     <title>داشبورد</title>
 </head>
+
 <body>
     <div class="background">
         <div class="nav">
-            <div onclick="navpost()">پست ها</div>
             <div onclick="navprofile()">پروفایل</div>
+            <div onclick="navasly()">صفحه اصلی</div>
+            <div onclick="navpost()">پست ها</div>
+            <div onclick="navadmin()">مدیر ها</div>
         </div>
         <div class="profile" id="profile">
             <div class="profile-t"></div>
             <div class="profile-b">
-                <div class="progrid prog1">
-                    <p>:نام کاربری</p>
-                    <p id="usertext"></p>
-                    <p>:رمز</p>
-                    <p id="passtext"></p>
-                </div>
-                <div class="progrid prog2">
-                    <p>:نام</p>
-                    <p id="lnametext"></p>
-                </div>
-                <div class="progrid prog3">
-                    <p>:نام خوانوادگی</p>
-                    <p id="fnametext"></p>
-                </div>
-                <div class="progrid prog4">
-                    <p>:سن</p>
-                    <p id="agetext"></p>
-                </div>
+                <p><span id="usertext"></span>:نام کاربری</p>
+                <p><span id="passtext"></span>:رمز</p>
+                <p><span id="lnametext"></span>:نام</p>
+                <p><span id="fnametext"></span>:نام خوانوادگی</p>
+                <p><span id="agetext"></span>:سن</p>
             </div>
         </div>
         <div class="divpost" id="post">
-
             <div class="post">
                 <header>
-                    <div>
-                        <div class="img"></div>
-                    </div>
                     <p>پست ها</p>
                 </header>
-                <div id="posts" class="posts"></div>
-                <div id="div-textarea" class="textarea">
-                    <textarea id="textarea"></textarea>
-                    <div onclick="ersal(), ersal_an()" class="next">
-                        <i id="ersal" class="ersal">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
-                                class="bi bi-send-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
-                            </svg>
-                        </i>
+                <main class="postmain">
+                    <main class="postr">
+                        <div class="textarea">
+                            <textarea id="textarea"></textarea>
+                            <div onclick="ersal()" class="ersal">ارسال پست</div>
+                        </div>
+                    </main>
+                    <main class="postl">
+                        <div id="posts" class="posts">
+                            <div class="poststitr">
+                                <div>نام</div>
+                                <div>متن</div>
+                            </div>
+                        </div>
+                    </main>
+            </div>
+        </div>
+        <form class="form" id="admin">
+            <main class="formr">
+                <div>
+                    <p>اضافه کردن مدیر</p>
+                </div>
+                <div>
+                    <label for="lname">نام</label>
+                    <input class="input" id="lname" type="text" placeholder="...نام">
+                </div>
+                <div>
+                    <label for="fname">نام خوانوادگی</label>
+                    <input id="fname" type="text" placeholder="...نام خوانوادگی">
+                </div>
+                <div>
+                    <label for="age">سن</label>
+                    <input id="age" type="text" placeholder="...سن">
+                </div>
+                <div>
+                    <label for="user">نام کاربری</label>
+                    <input id="user" type="text" placeholder="...نام کاربری">
+                </div>
+                <div>
+                    <label for="pass">رمز</label>
+                    <input id="pass" type="password" placeholder="...رمز">
+                </div>
+                <div>
+                    <label for="passok">تایید رمز</label>
+                    <input id="passok" type="password" placeholder="...تایید رمز">
+                </div>
+                <div>
+                    <input id="btn" type="submit" onclick="register()" value="اضافه کردن">
+                </div>
+            </main>
+            <main class="forml">
+                <div class="admins" id="admins">
+                    <div class="adminstitr">
+                        <div>نام</div>
+                        <div>نام خوانوادگی</div>
+                        <div>سن</div>
+                        <div>نام کاربری</div>
+                        <div>رمز عبور</div>
                     </div>
                 </div>
-
-                <footer id="emoji-footer" class="emoji-footer-n">
-                    <p>هنوز ابداع نشده</p>
-                </footer>
-                <footer id="gmenu-footer" class="gmenu-footer-n">
-                    <p>هنوز ابداع نشده</p>
-                </footer>
-            </div>
-
-        </div>
+            </main>
+        </form>
     </div>
 </body>
 <script src="./js/Dashboard.js"></script>
+
 </html>

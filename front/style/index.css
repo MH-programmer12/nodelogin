@@ -11,80 +11,202 @@
 }
 
 .background {
+    position: fixed;
+    z-index: -1;
+    overflow: hidden;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../img/background.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.form {
-    width: 300px;
-    height: 400px;
+.body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
 }
 
-.form div {
+.nav {
     width: 100%;
-    height: 20%;
+    height: 10vh;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: row-reverse;
+    user-select: none;
+}
+
+.nav div {
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: rgb(150, 0, 150);
+    margin-left: 10px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}   
+
+.profile {
+    width: 40%;
+    height: 90vh;
+    margin-top: 50px;
+    border-radius: 15px;
+    display: none;
+    padding-bottom: 20px;
+}
+
+.profile-t {
+    width: 103%;
+    height: 30%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 40px;
+}
+
+.profile-b {
+    width: 100%;
+    height: 60%;
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 30px;
+}
+
+.progrid {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progrid p {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.divpost {
+    width: 100%;
+    height: 87vh;
+    margin-top: 3vh;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.divpost header {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+}
+
+.divpost header p {
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.titr p {
-    font-size: 20px;
-    color: white;
-}
-
-div input {
-    width: 80%;
-    height: 40px;
-    border: 0;
-    outline: 0;
-    text-align: right;
-    border-radius: 5px;
-    padding-right: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.a-div {
-    height: 10%;
-}
-
-.a-left {
-    width: 60%;
-    height: 100%;
-    display: flex;
+.divpost .posts {
+    width: 100%;
+    overflow: auto;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    position: absolute;
+    z-index: 0.9;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
     justify-content: center;
-    text-decoration: none;
-    color: rgb(150, 218, 223);
+    align-items: center;
 }
 
-.a-right {
-    width: 40%;
-    height: 100%;
+.divpost .posts .bot {
+    position: relative;
+    margin: 0 5%;
+    margin-bottom: 25px;
+    height: 250px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    text-decoration: none;
-    color: rgb(150, 218, 223);
-}
-
-div button {
-    width: 80%;
-    height: 35px;
-    border-radius: 30px;
-    border: 0;
-    outline: 0;
-    background-color: rgb(214, 0, 75);
-    color: white;
+    align-items: center;
+    animation: text 0.3s;
+    border-radius: 15px;
+    cursor: pointer;
     transition: 0.2s;
+    background-color: white;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7);
 }
 
-div button:hover {
-    background-color: rgb(255, 0, 34);
+.divpost .posts .bot p {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    color: black;
+    font-size: 17px;
+    text-align: right;
+    padding: 0 40px;
+}
+
+.divpost .posts .bot .pt {
+    width: 100%;
+    height: 40%;
+    font-size: 17px;
+}
+
+.divpost .posts .bot .pb {
+    width: 100%;
+    height: 60%;
+    font-size: 17px;
+    align-items: flex-start;
+}
+
+.divpost .posts .bot p .time {
+    color: rgba(0, 0, 0, 0.6);
+    transition: 0.2s;
+    text-align: right;
+}
+
+@keyframes text {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
+::selection {
+    background-color: white;
+    color: green;
 }

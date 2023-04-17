@@ -22,7 +22,6 @@ body {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    background-image: url(../img/background.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,7 +45,6 @@ header .titr {
     align-items: center;
     padding: 50px 50px 30px 50px;
     font-size: 20px;
-    color: white;
 }
 
 header .p {
@@ -56,7 +54,6 @@ header .p {
     align-items: center;
     padding: 5px 50px 50px 50px;
     text-align: right;
-    color: white;
 }
 
 .nazar {
@@ -76,7 +73,6 @@ header .p {
     height: 60px;
     background-color: rgb(128, 0, 94);
     box-shadow: 0 0 3px 0 rgba(148, 0, 108, 0.7);
-    color: white;
 }
 
 .nazar header div {
@@ -106,7 +102,6 @@ header .p {
     border: none;
     outline: none;
     background-color: transparent;
-    color: white;
     text-align: right;
     display: flex;
     justify-content: center;
@@ -124,46 +119,7 @@ header .p {
     box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-.nazar .nazars .my {
-    margin: 0 5%;
-    margin-bottom: 25px;
-    width: 90%;
-    height: auto;
-    min-height: 40px;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    animation: text 0.2s;
-}
-
-.nazar .nazars .my p {
-    position: relative;
-    margin: 0 2%;
-    padding: 5px 25px 5px 48px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    width: auto;
-    min-width: 80px;
-    max-width: 70%;
-    min-height: 35px;
-    max-height: 500px;
-    background-color: rgb(199, 230, 221);
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    font-size: 14px;
-    text-align: right;
-}
-
-.nazar .nazars .my .time {
-    position: absolute;
-    left: 5px;
-    bottom: 1px;
-    font-size: 0.7rem;
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.nazar .nazars .bot1 {
+.nazar .nazars .bot {
     margin: 0 5%;
     margin-bottom: 25px;
     width: 90%;
@@ -176,7 +132,7 @@ header .p {
     animation: text 0.3s;
 }
 
-.nazar .nazars .bot1 p {
+.nazar .nazars .bot p {
     position: relative;
     margin: 0 2%;
     padding: 5px 70px 5px 25px;
@@ -195,7 +151,7 @@ header .p {
     text-align: right;
 }
 
-.nazar .nazars .bot1 p .name {
+.nazar .nazars .bot p .name {
     position: absolute;
     right: 7px;
     top: 2px;
@@ -203,7 +159,7 @@ header .p {
     color: rgba(0, 0, 0, 0.8);
 }
 
-.nazar .nazars .bot1 p .time {
+.nazar .nazars .bot p .time {
     position: absolute;
     right: 5px;
     bottom: 1px;
@@ -229,7 +185,6 @@ header .p {
     box-shadow: 0 0 3px 0 rgba(148, 0, 108, 0.7);
     font-size: 18px;
     padding: 8px 100px 5px 50px;
-    color: white;
     text-align: center;
     resize: none;
 }
@@ -241,7 +196,6 @@ header .p {
     bottom: 3px;
     right: 25px;
     padding: 0 2%;
-    color: white;
 }
 
 @keyframes btn {
@@ -268,22 +222,4 @@ header .p {
         transform: scale(1);
         opacity: 1;
     }
-}
-
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 3px 0 gray;
-    border-radius: 15px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgb(0, 128, 83);
-    border-radius: 15px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgb(8, 113, 76);
 }

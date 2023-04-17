@@ -1,44 +1,72 @@
-function clickr() {
-    const user = document.getElementById("user").value;
-    const pass = document.getElementById("pass").value;
-
-    if (user.length < 3) {
-        alert("user.length < 3");
-        return;
-    }
-    if (user.length > 15) {
-        alert("user.length > 15");
-        return;
-    }
-    if (pass.length < 3) {
-        alert("pass.length < 3");
-        return;
-    }
-    if (pass.length > 15) {
-        alert("pass.length > 15");
-        return;
-    }
-    function test() {
-        const http = new XMLHttpRequest();
-        let datareq = {
-            user: user,
-            pass: pass,
+const cookie = document.cookie.split('=');
+if (cookie[0] == "key") {
+    const http = new XMLHttpRequest();
+    http.open("POST", "http://localhost:3000/test/");
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send(cookie[1]);
+    http.onload = () => {
+        const res = JSON.parse(http.responseText)
+        console.log(res);
+        console.log(res);
+        const navrbtn =document.getElementById("navrbtn");
+        navrbtn.innerHTML = res.key.lname;
+        function navprofile() {
+            location.href = "./Dashboard.html";
         }
-        http.open("POST", "http://localhost:3000/test/");
-        http.setRequestHeader("Content-Type", "application/json");
-        http.send(JSON.stringify(datareq));
-        http.onload = () => {
-            const datares = JSON.parse(http.responseText)
-            console.log(datares);
-            if (datares.key) {
-                document.cookie = "key =" + JSON.stringify(datareq);
-                location.href = "./asly.html";
-            } else {
-                alert("اشتباه است");
-            }
-        }
-        http.onerror = () => {
-            console.log("error");
-        }
-    } test();
+    }
+    http.onerror = () => { console.log("error") }
+} else {
+    console.log("no");
+    function navprofile() {
+        location.href = "./vorod.html";
+    }
 }
+
+function navprofile() {
+    location.href = "./Dashboard.html";
+}
+
+var now = new Date();
+var hour = now.getHours();
+var minute = now.getMinutes();
+
+function ersal_an() {
+    const ersal = document.getElementById("ersal");
+    ersal.style.animation = "text 0.3s";
+    setTimeout(() => {
+        ersal.style.animation = "";
+    }, 300);
+}
+
+const http = new XMLHttpRequest();
+http.open("GET", "http://localhost:3000/post")
+http.send();
+http.onload = () => {
+    const res = JSON.parse(http.responseText)
+    console.log(res);
+    for (i = 0; i < res.length; i++) {
+        const a = document.createElement("a");
+        const div = document.createElement("div");
+        const pt = document.createElement("p");
+        const pb = document.createElement("p");
+        const time = document.createElement("span");
+        const urlpost = "post.html?id=" + res[i].id + "";
+        const href = document.createAttribute("href");
+        href.value = urlpost;
+        a.setAttributeNode(href);
+        div.classList = "bot";
+        pt.classList = "pt";
+        pt.innerHTML = res[i].lname;
+        pb.classList = "pb";
+        time.classList = "time";
+        time.innerHTML = hour + ":" + minute;
+        const textnode = document.createTextNode(res[i].text);
+        pb.appendChild(textnode);
+        div.appendChild(pt);
+        div.appendChild(pb);
+        div.appendChild(time);
+        a.appendChild(div);
+        document.getElementById("posts").appendChild(a);
+    }
+}
+http.onerror = () => { console.log("error") }

@@ -41,3 +41,6 @@ node ape.js
 ## Run front
 ### To run front, run the file index.html in the project folder
 nodeproject/project/index.html
+
+### user: abc
+### pass: 123

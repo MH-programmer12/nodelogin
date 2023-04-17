@@ -34,7 +34,7 @@ function ersalnazar() {
     const text = document.getElementById("textarea").value;
     time.innerHTML = hour + ":" + minute;
     time.classList = "time";
-    div.classList = "my";
+    div.classList = "bot";
     const cookie = document.cookie.split('=');
 
     const httpcookie = new XMLHttpRequest();
@@ -88,7 +88,7 @@ httpnazar.onload = () => {
         time.innerHTML = hour + ":" + minute;
         aname.classList = "name";
         time.classList = "time";
-        div.classList = "bot1";
+        div.classList = "bot";
         aname.innerHTML = res[i].lname;
         const textnode = document.createTextNode(res[i].text);
         p.appendChild(textnode);

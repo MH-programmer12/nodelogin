@@ -5,30 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/vDashboard.css">
+    <link rel="stylesheet" href="./style/vorod.css">
     <title>ورود</title>
 </head>
 <body>
     <div class="background">
         <div class="form" id="form">
             <div class="titr">
-                <p>ورود داشبورد</p>
+                <p>ورود</p>
             </div>
             <div>
+                <label for="user">نام کاربری</label>
                 <input id="user" type="text" placeholder="...نام کاربری">
             </div>
             <div>
-                <input id="pass" type="text" placeholder="...رمز">
-            </div>
-            <div class="a-div">
-                <a class="a-left" href="./index.html">ورود به صفحه ورود</a>
-                <a class="a-right" href="./Register.html">ثبت نام</a>
+                <label for="pass">رمز</label>
+                <input id="pass" type="password" placeholder="...رمز">
             </div>
             <div>
-                <button onclick="clickr()">ورود به داشبورد</button>
+                <button onclick="vorod()">ورود</button>
             </div>
         </div>
     </div>
 </body>
-<script src="./js/vDashboard.js"></script>
+<script src="./js/vorod.js"></script>
 </html>
