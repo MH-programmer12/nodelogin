@@ -10,83 +10,64 @@
     box-sizing: border-box;
 }
 
-html {
-    overflow: hidden;
-}
-
-.background {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../img/profile.jpeg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .nav {
     width: 100%;
     height: 10vh;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    flex-direction: row-reverse;
+    background-color: forestgreen;
     user-select: none;
 }
 
 .nav div {
     width: 100px;
-    height: 40px;
-    border: 1px solid white;
-    border-radius: 15px;
-    color: rgb(150, 0, 150);
-    cursor: pointer;
-    margin-left: 10px;
-    margin-right: 10px;
+    height: 100%;
+    color: white;
+    margin: 0 10px;
+    float: right;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.2s;
+    cursor: pointer;
+}
+
+.nav .navleft {
+    float: left;
 }
 
 .profile {
-    width: 50%;
+    width: 100%;
     height: 90vh;
-    border-radius: 15px;
-    display: block;
-    padding-bottom: 20px;
-}
-
-.profile-t {
-    width: 100%;
-    height: 35%;
-    margin-bottom: 5%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 15px;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7);
-}
-
-.profile-b {
-    width: 100%;
-    height: 60%;
-}
-
-.profile-b p {
-    width: 100%;
-    height: 40px;
-    font-size: 20px;
     display: flex;
     justify-content: right;
-    align-items: center;
 }
 
-.divpost {
+.profile .profilevalue {
+    width: 50%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.profile .profilevalue p {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid forestgreen;
+}
+
+.profile .profilevalue span {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid forestgreen;
+}
+
+.post {
     width: 100%;
     height: 90vh;
     border-radius: 15px;
@@ -94,45 +75,10 @@ html {
     overflow: hidden;
 }
 
-.post {
+header {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 15px;
-}
-
-.post header {
-    width: 100%;
-    height: 60px;
-}
-
-.post header div {
-    width: 18%;
-    height: 100%;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.post header div .img {
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.post header p {
-    width: 18%;
-    height: 100%;
-    float: right;
+    height: 10vh;
     font-size: 1.3rem;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    text-align: right;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,30 +86,43 @@ html {
 
 .postmain {
     width: 100%;
-    height: 100%;
+    height: 80vh;
 }
 
 .postr {
     width: 30%;
     height: 100%;
-    float: right;
     padding: 30px;
+    float: right;
 }
 
 .postr textarea {
     width: 100%;
-    height: 300px;
+    height: 200px;
     resize: none;
+    border-radius: 5px;
+    border: 1px solid forestgreen;
+    outline: none;
+    text-align: right;
+    font-size: 17px;
+    padding: 20px;
 }
 
 .postr .ersal {
     width: 100%;
     height: 40px;
-    border-radius: 15px;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 1px 1px forestgreen;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.postr .ersal:hover {
+    background-color: forestgreen;
+    color: white;
 }
 
 .postl {
@@ -176,7 +135,7 @@ html {
     width: 100%;
     height: 100%;
     overflow: auto;
-    padding-bottom: 45px;
+    padding-bottom: 15px;
 }
 
 .postl .posts .poststitr {
@@ -209,31 +168,29 @@ html {
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
+    overflow: auto;
+    padding: 10px;
 }
 
 .form {
     width: 100%;
     height: 90vh;
-    margin-top: 50px;
-    border-radius: 15px;
     display: none;
-    padding-bottom: 20px;
 }
 
-.form .formr {
+.formmain {
+    width: 100%;
+    height: 80vh;
+}
+
+.formr {
     width: 40%;
     height: 100%;
     float: right;
-    padding: 0 60px;
+    padding: 0 100px;
 }
 
-.form .forml {
-    width: 60%;
-    height: 100%;
-    float: left;
-}
-
-.form .formr div {
+.formr div {
     position: relative;
     width: 100%;
     height: 10%;
@@ -242,13 +199,13 @@ html {
     align-items: center;
 }
 
-.form .formr div label {
+.formr div label {
     width: 100px;
     height: 30px;
     text-align: left;
     position: absolute;
     top: 50%;
-    right: -80px;
+    right: -70px;
     transform: translateY(-40%);
     font-size: 0.8rem;
 }
@@ -265,8 +222,7 @@ html {
     text-align: right;
     border-radius: 5px;
     padding-right: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7);
+    border: 1px solid forestgreen;
 }
 
 .formr div #btn {
@@ -275,27 +231,27 @@ html {
     border-radius: 30px;
     border: 0;
     outline: 0;
-    background-color: rgb(214, 0, 75);
     transition: 0.2s;
     text-align: center;
     padding-right: 0;
+    box-shadow: 0 0 1px 1px forestgreen;
+    cursor: pointer;
 }
 
 .formr div #btn:hover {
-    background-color: rgb(255, 0, 34);
+    background-color: forestgreen;
+    color: white;
 }
 
 .forml {
-    width: 70%;
+    width: 60%;
     height: 100%;
 }
 
 .forml .admins {
     width: 100%;
-    height: 90%;
+    height: 100%;
     overflow: auto;
-    padding-top: 80px;
-    padding-bottom: 45px;
 }
 
 .forml .admins .adminstitr {
@@ -353,4 +309,22 @@ html {
         transform: scale(1);
         opacity: 1;
     }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px 0 gray;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 128, 83);
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(8, 113, 76);
 }

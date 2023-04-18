@@ -38,7 +38,7 @@ function navasly() {
 function navprofile() {
     admin.style.display = "none";
     post.style.display = "none";
-    profile.style.display = "block";
+    profile.style.display = "flex";
 }
 function navadmin() {
     profile.style.display = "none";

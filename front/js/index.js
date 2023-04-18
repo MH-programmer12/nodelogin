@@ -30,14 +30,6 @@ var now = new Date();
 var hour = now.getHours();
 var minute = now.getMinutes();
 
-function ersal_an() {
-    const ersal = document.getElementById("ersal");
-    ersal.style.animation = "text 0.3s";
-    setTimeout(() => {
-        ersal.style.animation = "";
-    }, 300);
-}
-
 const http = new XMLHttpRequest();
 http.open("GET", "http://localhost:3000/post")
 http.send();

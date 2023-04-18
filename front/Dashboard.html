@@ -10,46 +10,51 @@
 </head>
 
 <body>
-    <div class="background">
-        <div class="nav">
-            <div onclick="navprofile()">پروفایل</div>
-            <div onclick="navasly()">صفحه اصلی</div>
-            <div onclick="navpost()">پست ها</div>
-            <div onclick="navadmin()">مدیر ها</div>
+
+    <div class="nav">
+        <div onclick="navprofile()">پروفایل</div>
+        <div onclick="navpost()">پست ها</div>
+        <div onclick="navadmin()">مدیر ها</div>
+        <div class="navleft" onclick="navasly()">بازگشت</div>
+    </div>
+
+    <div class="profile" id="profile">
+        <div class="profilevalue">
+            <span id="usertext"></span>
+            <p>:نام کاربری</p>
+            <span id="passtext"></span>
+            <p>:رمز</p>
+            <span id="lnametext"></span>
+            <p>:نام</p>
+            <span id="fnametext"></span>
+            <p>:نام خوانوادگی</p>
+            <span id="agetext"></span>
+            <p>:سن</p>
         </div>
-        <div class="profile" id="profile">
-            <div class="profile-t"></div>
-            <div class="profile-b">
-                <p><span id="usertext"></span>:نام کاربری</p>
-                <p><span id="passtext"></span>:رمز</p>
-                <p><span id="lnametext"></span>:نام</p>
-                <p><span id="fnametext"></span>:نام خوانوادگی</p>
-                <p><span id="agetext"></span>:سن</p>
-            </div>
-        </div>
-        <div class="divpost" id="post">
-            <div class="post">
-                <header>
-                    <p>پست ها</p>
-                </header>
-                <main class="postmain">
-                    <main class="postr">
-                        <div class="textarea">
-                            <textarea id="textarea"></textarea>
-                            <div onclick="ersal()" class="ersal">ارسال پست</div>
-                        </div>
-                    </main>
-                    <main class="postl">
-                        <div id="posts" class="posts">
-                            <div class="poststitr">
-                                <div>نام</div>
-                                <div>متن</div>
-                            </div>
-                        </div>
-                    </main>
-            </div>
-        </div>
-        <form class="form" id="admin">
+    </div>
+
+    <div class="post" id="post">
+        <header>پست ها</header>
+        <main class="postmain">
+            <main class="postr">
+                <div class="textarea">
+                    <textarea placeholder="...متن پست را وارد کنید" id="textarea"></textarea>
+                    <div onclick="ersal()" class="ersal">ارسال پست</div>
+                </div>
+            </main>
+            <main class="postl">
+                <div id="posts" class="posts">
+                    <div class="poststitr">
+                        <div>نام</div>
+                        <div>متن</div>
+                    </div>
+                </div>
+            </main>
+    </div>
+
+    <form class="form" id="admin">
+        <header>پست ها</header>
+        <div class="formmain">
             <main class="formr">
                 <div>
                     <p>اضافه کردن مدیر</p>
@@ -93,8 +98,9 @@
                     </div>
                 </div>
             </main>
-        </form>
-    </div>
+        </div>
+    </form>
+
 </body>
 <script src="./js/Dashboard.js"></script>
 
