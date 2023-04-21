@@ -32,45 +32,36 @@ function ersalnazar() {
     const p = document.createElement("p");
     const div = document.createElement("div");
     const text = document.getElementById("textarea").value;
+    const namenazar = document.getElementById("namenazar").value;
     time.innerHTML = hour + ":" + minute;
     time.classList = "time";
     div.classList = "bot";
-    const cookie = document.cookie.split('=');
 
-    const httpcookie = new XMLHttpRequest();
-    httpcookie.open("POST", "http://localhost:3000/test/");
-    httpcookie.setRequestHeader("Content-Type", "application/json");
-    httpcookie.send(cookie[1]);
-    httpcookie.onload = () => {
-        const res = JSON.parse(httpcookie.responseText)
+    var query = window.location.search.substring(1);
+    arrquery = query.split("=");
+    postid = arrquery[1];
 
-        var query = window.location.search.substring(1);
-        arrquery = query.split("=");
-        postid = arrquery[1];
+    const req = {
+        "lname": namenazar,
+        "postid": postid,
+        "text": text,
+    };
 
-        const req = {
-            "lname": res.key.lname,
-            "postid": postid,
-            "text": text,
-        };
-
-        const httpnazar = new XMLHttpRequest();
-        httpnazar.open("POST", "http://localhost:3000/nazar/");
-        httpnazar.setRequestHeader("Content-Type", "application/json");
-        httpnazar.send(JSON.stringify(req));
-        httpnazar.onload = () => {
-            const res = JSON.parse(httpnazar.responseText);
-            console.log(res);
-        }
-        httpnazar.onerror = () => { console.log("error") }
-
-        const textnode = document.createTextNode(text);
-        p.appendChild(textnode);
-        p.appendChild(time);
-        div.appendChild(p);
-        document.getElementById("nazars").appendChild(div);
+    const httpnazar = new XMLHttpRequest();
+    httpnazar.open("POST", "http://localhost:3000/nazar/");
+    httpnazar.setRequestHeader("Content-Type", "application/json");
+    httpnazar.send(JSON.stringify(req));
+    httpnazar.onload = () => {
+        const res = JSON.parse(httpnazar.responseText);
+        console.log(res);
     }
-    httpcookie.onerror = () => { console.log("error") }
+    httpnazar.onerror = () => { console.log("error") }
+
+    const textnode = document.createTextNode(text);
+    p.appendChild(textnode);
+    p.appendChild(time);
+    div.appendChild(p);
+    document.getElementById("nazars").appendChild(div);
 }
 
 const httpnazar = new XMLHttpRequest();
