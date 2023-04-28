@@ -12,10 +12,49 @@
 <body>
 
     <div class="nav">
-        <div onclick="navprofile()">پروفایل</div>
-        <div onclick="navpost()">پست ها</div>
-        <div onclick="navadmin()">مدیر ها</div>
         <div class="navleft" onclick="navasly()">بازگشت</div>
+    </div>
+
+    <div class="nav-r">
+        <div class="nav-r-top">
+            <i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                    class="bi bi-columns-gap" viewBox="0 0 16 16">
+                    <path
+                        d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z" />
+                </svg>
+            </i>
+            <p>داشبورد جون</p>
+        </div>
+        <div class="nav-r-btn" onclick="navprofile()">
+            <div id="nav-r-profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                </svg>
+            </div>
+            <p>پروفایل</p>
+        </div>
+        <div class="nav-r-btn" onclick="navpost()">
+            <div id="nav-r-post">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-postcard-heart-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm6 2.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0Zm3.5.878c1.482-1.42 4.795 1.392 0 4.622-4.795-3.23-1.482-6.043 0-4.622ZM2 5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z" />
+                </svg>
+            </div>
+            <p>پست ها</p>
+        </div>
+        <div class="nav-r-btn" onclick="navadmin()">
+            <div id="nav-r-admin">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-people-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                </svg>
+            </div>
+            <p>مدیر ها</p>
+        </div>
     </div>
 
     <div class="profile" id="profile">
@@ -34,72 +73,78 @@
     </div>
 
     <div class="post" id="post">
-        <header>پست ها</header>
+        <div class="post-header">
+            <p>پست ها</p>
+            <div>
+                <button onclick="newpost()">افزودن</button>
+            </div>
+        </div>
         <main class="postmain">
-            <main class="postr">
-                <div class="textarea">
-                    <textarea placeholder="...متن پست را وارد کنید" id="textarea"></textarea>
-                    <div onclick="ersal()" class="ersal">ارسال پست</div>
+            <div id="posts" class="posts">
+                <div class="poststitr">
+                    <div>نام</div>
+                    <div>متن</div>
                 </div>
-            </main>
-            <main class="postl">
-                <div id="posts" class="posts">
-                    <div class="poststitr">
-                        <div>نام</div>
-                        <div>متن</div>
-                    </div>
-                </div>
-            </main>
+            </div>
+        </main>
+    </div>
+
+    <div id="closepost" onclick="closepost()" class="closepost"></div>
+    <div id="newpost" class="newpost">
+        <textarea placeholder="...متن پست را وارد کنید" id="textarea"></textarea>
+        <div onclick="ersal(),closepost()" class="ersal">ارسال پست</div>
     </div>
 
     <form class="form" id="admin">
-        <header>پست ها</header>
+        <div class="admin-header">
+            <p>مدیر ها</p>
+            <div>
+                <div onclick="newadmin()">افزودن</div>
+            </div>
+        </div>
         <div class="formmain">
-            <main class="formr">
-                <div>
-                    <p>اضافه کردن مدیر</p>
+            <div class="admins" id="admins">
+                <div class="adminstitr">
+                    <div>نام</div>
+                    <div>نام خوانوادگی</div>
+                    <div>سن</div>
+                    <div>نام کاربری</div>
+                    <div>رمز عبور</div>
                 </div>
-                <div>
-                    <label for="lname">نام</label>
-                    <input class="input" id="lname" type="text" placeholder="...نام">
-                </div>
-                <div>
-                    <label for="fname">نام خوانوادگی</label>
-                    <input id="fname" type="text" placeholder="...نام خوانوادگی">
-                </div>
-                <div>
-                    <label for="age">سن</label>
-                    <input id="age" type="text" placeholder="...سن">
-                </div>
-                <div>
-                    <label for="user">نام کاربری</label>
-                    <input id="user" type="text" placeholder="...نام کاربری">
-                </div>
-                <div>
-                    <label for="pass">رمز</label>
-                    <input id="pass" type="password" placeholder="...رمز">
-                </div>
-                <div>
-                    <label for="passok">تایید رمز</label>
-                    <input id="passok" type="password" placeholder="...تایید رمز">
-                </div>
-                <div>
-                    <input id="btn" type="submit" onclick="register()" value="اضافه کردن">
-                </div>
-            </main>
-            <main class="forml">
-                <div class="admins" id="admins">
-                    <div class="adminstitr">
-                        <div>نام</div>
-                        <div>نام خوانوادگی</div>
-                        <div>سن</div>
-                        <div>نام کاربری</div>
-                        <div>رمز عبور</div>
-                    </div>
-                </div>
-            </main>
+            </div>
         </div>
     </form>
+
+    <div id="closeadmin" onclick="closeadmin()" class="closeadmin"></div>
+    <div id="newadmin" class="newadmin">
+        <div class="newadmin-top">
+            <div>
+                <label for="lname">نام</label>
+                <input class="input" id="lname" type="text" placeholder="...نام">
+            </div>
+            <div>
+                <label for="fname">نام خوانوادگی</label>
+                <input id="fname" type="text" placeholder="...نام خوانوادگی">
+            </div>
+            <div>
+                <label for="age">سن</label>
+                <input id="age" type="text" placeholder="...سن">
+            </div>
+            <div>
+                <label for="user">نام کاربری</label>
+                <input id="user" type="text" placeholder="...نام کاربری">
+            </div>
+            <div>
+                <label for="pass">رمز</label>
+                <input id="pass" type="password" placeholder="...رمز">
+            </div>
+            <div>
+                <label for="passok">تایید رمز</label>
+                <input id="passok" type="password" placeholder="...تایید رمز">
+            </div>
+        </div>
+        <input id="btn" type="submit" onclick="register(),closeadmin()" value="اضافه کردن">
+    </div>
 
 </body>
 <script src="./js/Dashboard.js"></script>

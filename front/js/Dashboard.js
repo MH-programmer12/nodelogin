@@ -20,18 +20,16 @@ if (cookie[0] == "key") {
     }
     http.onerror = () => { console.log("error") }
 } else {
-    console.log("no");
+    location.href = "./vorod.html";
 }
 
 const profile = document.getElementById("profile");
 const post = document.getElementById("post");
 const admin = document.getElementById("admin");
+const nav_r_profile = document.getElementById("nav-r-profile");
+const nav_r_post = document.getElementById("nav-r-post");
+const nav_r_admin = document.getElementById("nav-r-admin");
 
-function navpost() {
-    admin.style.display = "none";
-    profile.style.display = "none";
-    post.style.display = "block";
-}
 function navasly() {
     location.href = "./index.html";
 }
@@ -39,16 +37,55 @@ function navprofile() {
     admin.style.display = "none";
     post.style.display = "none";
     profile.style.display = "flex";
+    nav_r_profile.style.backgroundColor = "rgb(178, 0, 127)";
+    nav_r_post.style.backgroundColor = "rgb(155, 155, 155)";
+    nav_r_admin.style.backgroundColor = "rgb(155, 155, 155)";
+}
+function navpost() {
+    admin.style.display = "none";
+    profile.style.display = "none";
+    post.style.display = "block";
+    nav_r_profile.style.backgroundColor = "rgb(155, 155, 155)";
+    nav_r_post.style.backgroundColor = "rgb(178, 0, 127)";
+    nav_r_admin.style.backgroundColor = "rgb(155, 155, 155)";
 }
 function navadmin() {
     profile.style.display = "none";
     post.style.display = "none";
     admin.style.display = "block";
+    nav_r_profile.style.backgroundColor = "rgb(155, 155, 155)";
+    nav_r_post.style.backgroundColor = "rgb(155, 155, 155)";
+    nav_r_admin.style.backgroundColor = "rgb(178, 0, 127)";
 }
 
 var now = new Date();
 var hour = now.getHours();
 var minute = now.getMinutes();
+
+
+const newpostc = document.getElementById("newpost");
+const closepostc = document.getElementById("closepost");
+
+function closepost() {
+    newpostc.style.display = "none";
+    closepostc.style.display = "none";
+}
+function newpost() {
+    newpostc.style.display = "block";
+    closepostc.style.display = "block";
+}
+
+const newadminc = document.getElementById("newadmin");
+const closeadminc = document.getElementById("closeadmin");
+
+function closeadmin() {
+    newadminc.style.display = "none";
+    closeadminc.style.display = "none";
+}
+function newadmin() {
+    newadminc.style.display = "block";
+    closeadminc.style.display = "block";
+}
 
 function ersal_an() {
     const ersal = document.getElementById("ersal");

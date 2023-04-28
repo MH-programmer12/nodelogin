@@ -8,10 +8,14 @@ if (cookie[0] == "key") {
         const res = JSON.parse(http.responseText)
         console.log(res);
         console.log(res);
-        const navrbtn =document.getElementById("navrbtn");
-        navrbtn.innerHTML = res.key.lname;
-        function navprofile() {
-            location.href = "./Dashboard.html";
+        const nav_pp =document.getElementById("nav-pp");
+        const nav_khorog =document.getElementById("nav-khorog");
+        if(res.key.lname) {
+            nav_pp.innerHTML = res.key.lname;
+            nav_khorog.style.display = "flex";
+        } else {
+            nav_pp.innerHTML = "ورود";
+            nav_khorog.style.display = "none";
         }
     }
     http.onerror = () => { console.log("error") }
@@ -20,6 +24,10 @@ if (cookie[0] == "key") {
     function navprofile() {
         location.href = "./vorod.html";
     }
+}
+function navkhorog() {
+    document.cookie = "key=aaa;max-age=0";
+    location.href = "./index.html";
 }
 
 function navprofile() {

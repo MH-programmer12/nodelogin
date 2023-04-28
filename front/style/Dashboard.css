@@ -10,17 +10,27 @@
     box-sizing: border-box;
 }
 
-.nav {
+body {
     width: 100%;
-    height: 10vh;
-    background-color: forestgreen;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(224, 227, 234);
+}
+
+.nav {
+    width: 78%;
+    height: 6vh;
+    display: inline-block;
     user-select: none;
+    border-radius: 20px;
+    background-color: white;
+    margin: 1%;
+    box-shadow: 0 0 2px 0 rgba(181, 181, 181, 0.2);
 }
 
 .nav div {
     width: 100px;
     height: 100%;
-    color: white;
     margin: 0 10px;
     float: right;
     display: flex;
@@ -33,55 +43,156 @@
     float: left;
 }
 
-.profile {
+.nav-r {
+    width: 18%;
+    height: 96vh;
+    float: right;
+    user-select: none;
+    border-radius: 20px;
+    background-color: white;
+    margin: 1%;
+    box-shadow: 0 0 10px 0 rgba(215, 215, 215, 0.1);
+}
+
+.nav-r-top {
     width: 100%;
-    height: 90vh;
+    height: 10vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 17px;
+    border-bottom: 1px solid forestgreen;
+    margin-bottom: 15px;
+}
+
+.nav-r-top i {
+    margin: 0 10px;
+}
+
+.nav-r-btn {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+    align-items: center;
+    cursor: pointer;
+}
+
+#nav-r-profile {
+    background-color: rgb(178, 0, 127);
+}
+
+.nav-r-btn div {
+    width: 40px;
+    height: 40px;
+    margin-right: 40px;
+    background-color: rgb(155, 155, 155);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.nav-r-btn p {
+    font-size: 17px;
+    margin-right: 15px;
+}
+
+.profile {
+    width: 78%;
+    height: 87vh;
     display: flex;
     justify-content: right;
+    float: right;
+    margin: 1%;
+    margin-top: 0;
 }
 
 .profile .profilevalue {
-    width: 50%;
-    height: 100%;
+    width: 25%;
+    height: 50%;
     display: grid;
     grid-template-columns: 50% 50%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(215, 215, 215, 0.1);
 }
 
 .profile .profilevalue p {
     width: 100%;
     height: 100%;
-    font-size: 20px;
+    font-size: 17px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid forestgreen;
 }
 
 .profile .profilevalue span {
     width: 100%;
     height: 100%;
-    font-size: 20px;
+    font-size: 17px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid forestgreen;
 }
 
 .post {
-    width: 100%;
-    height: 90vh;
+    width: 78%;
+    height: 87vh;
     border-radius: 15px;
     display: none;
     overflow: hidden;
+    margin: 1%;
+    margin-top: 0;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(215, 215, 215, 0.1);
 }
 
-header {
+.post-header {
     width: 100%;
     height: 10vh;
-    font-size: 1.3rem;
+    font-size: 17px;
+}
+
+.post-header p {
+    margin: 0 30px;
+    height: 100%;
+    float: right;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.post-header div {
+    width: 200px;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-header div button {
+    width: 85px;
+    height: 45%;
+    background-image: linear-gradient(to bottom right, rgb(0, 153, 38), black);
+    color: white;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-header div button:hover {
+    background-image: linear-gradient(to bottom right, rgb(0, 219, 26), black);
 }
 
 .postmain {
@@ -89,63 +200,23 @@ header {
     height: 80vh;
 }
 
-.postr {
-    width: 30%;
-    height: 100%;
-    padding: 30px;
-    float: right;
-}
-
-.postr textarea {
-    width: 100%;
-    height: 200px;
-    resize: none;
-    border-radius: 5px;
-    border: 1px solid forestgreen;
-    outline: none;
-    text-align: right;
-    font-size: 17px;
-    padding: 20px;
-}
-
-.postr .ersal {
-    width: 100%;
-    height: 40px;
-    border-radius: 5px;
-    box-shadow: 0 0 1px 1px forestgreen;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.postr .ersal:hover {
-    background-color: forestgreen;
-    color: white;
-}
-
-.postl {
-    width: 70%;
-    height: 100%;
-    float: left;
-}
-
-.postl .posts {
+.postmain .posts {
     width: 100%;
     height: 100%;
     overflow: auto;
     padding-bottom: 15px;
 }
 
-.postl .posts .poststitr {
+.postmain .posts .poststitr {
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid rgba(34, 139, 34, 0.8);
 }
-.postl .posts .poststitr div {
+
+.postmain .posts .poststitr div {
     width: 50%;
     height: 100%;
     display: flex;
@@ -153,7 +224,7 @@ header {
     align-items: center;
 }
 
-.postl .posts .divspost {
+.postmain .posts .divspost {
     width: 100%;
     height: 10%;
     display: flex;
@@ -161,7 +232,7 @@ header {
     align-items: center;
 }
 
-.postl .posts .divspost .divpost {
+.postmain .posts .divspost .divpost {
     width: 50%;
     height: 100%;
     display: flex;
@@ -172,10 +243,106 @@ header {
     padding: 10px;
 }
 
-.form {
+.closepost {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
     display: none;
+}
+
+.newpost {
+    width: 30%;
+    height: 71vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    display: none;
+}
+
+.newpost textarea {
+    width: 100%;
+    height: 62vh;
+    resize: none;
+    border: none;
+    outline: none;
+    text-align: right;
+    font-size: 17px;
+    padding: 20px;
+}
+
+.newpost .ersal {
+    width: 100%;
+    height: 8vh;
+    border-top: 1px solid forestgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.newpost .ersal:hover {
+    background-color: forestgreen;
+    color: white;
+}
+
+.form {
+    width: 78%;
+    height: 87vh;
+    display: none;
+    margin: 1%;
+    margin-top: 0;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.1);
+}
+
+.admin-header {
+    width: 100%;
+    height: 10vh;
+    font-size: 17px;
+}
+
+.admin-header p {
+    margin: 0 30px;
+    height: 100%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-header div {
+    width: 200px;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-header div div {
+    width: 85px;
+    height: 45%;
+    background-image: linear-gradient(to bottom right, rgb(0, 153, 38), black);
+    color: white;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.admin-header div button:hover {
+    background-image: linear-gradient(to bottom right, rgb(0, 219, 26), black);
 }
 
 .formmain {
@@ -183,15 +350,30 @@ header {
     height: 80vh;
 }
 
-.formr {
-    width: 40%;
+.formmain .admins {
+    width: 100%;
     height: 100%;
-    float: right;
-    padding: 0 100px;
+    overflow: auto;
 }
 
-.formr div {
-    position: relative;
+.formmain .admins .adminstitr {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(34, 139, 34, 0.8);
+}
+
+.formmain .admins .adminstitr div {
+    width: 18%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formmain .admins .divsuser {
     width: 100%;
     height: 10%;
     display: flex;
@@ -199,22 +381,62 @@ header {
     align-items: center;
 }
 
-.formr div label {
+.formmain .admins .divsuser .divuser {
+    width: 18%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeadmin {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.newadmin {
+    width: 30%;
+    height: 71vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    display: none;
+}
+
+.newadmin-top {
+    width: 100%;
+    height: 90%;
+}
+
+.newadmin-top div {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    margin: 25px 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.newadmin-top div label {
     width: 100px;
     height: 30px;
     text-align: left;
     position: absolute;
     top: 50%;
-    right: -70px;
+    right: 0;
     transform: translateY(-40%);
     font-size: 0.8rem;
 }
 
-.formr div p {
-    font-size: 20px;
-}
-
-.formr div input {
+.newadmin-top div input {
     width: 70%;
     height: 40px;
     border: 0;
@@ -222,67 +444,24 @@ header {
     text-align: right;
     border-radius: 5px;
     padding-right: 20px;
-    border: 1px solid forestgreen;
+    margin: 20px 10px;
+    box-shadow: inset 0 0 1px 1px forestgreen;
 }
 
-.formr div #btn {
-    width: 80%;
-    height: 35px;
-    border-radius: 30px;
-    border: 0;
-    outline: 0;
+.newadmin #btn {
+    width: 100%;
+    height: 10%;
+    border: none;
+    border-top: 1px solid forestgreen;
+    outline: none;
     transition: 0.2s;
-    text-align: center;
-    padding-right: 0;
-    box-shadow: 0 0 1px 1px forestgreen;
+    text-align: center; 
     cursor: pointer;
 }
 
-.formr div #btn:hover {
+.newadmin #btn:hover {
     background-color: forestgreen;
     color: white;
-}
-
-.forml {
-    width: 60%;
-    height: 100%;
-}
-
-.forml .admins {
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-}
-
-.forml .admins .adminstitr {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.forml .admins .adminstitr div {
-    width: 18%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.forml .admins .divsuser {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.forml .admins .divsuser .divuser {
-    width: 18%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 @keyframes btn {
