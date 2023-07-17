@@ -7,6 +7,7 @@ nodeproject/api/api.js
 npm install
 npm run start
 or
+npm install
 node ape.js
 ```
 
