@@ -6,6 +6,7 @@ nodeproject/api/api.js
 ```bash
 npm install
 npm run start
+or
 node ape.js
 ```
 
